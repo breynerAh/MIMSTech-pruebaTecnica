@@ -16,7 +16,7 @@ export function SelectUI({
 }: TSelectProps) {
   return (
     <Select value={selectedFont} onValueChange={setSelectedFont}>
-      <SelectTrigger className="w-[100px] border-none shadow-none focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0">
+      <SelectTrigger className="w-[100px] mr-3 border-none shadow-none focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0">
         <SelectValue placeholder="Select" />
       </SelectTrigger>
       <SelectContent>

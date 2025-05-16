@@ -15,7 +15,7 @@ export function ModalUI({ title, onClick, history }: TModalProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" className="w-[25%]" onClick={() => onClick()}>
+        <Button variant="outline" onClick={() => onClick()}>
           {title}
         </Button>
       </DialogTrigger>

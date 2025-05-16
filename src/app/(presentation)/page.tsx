@@ -104,28 +104,33 @@ export default function Home() {
             className="h-[20%] w-[1px] bg-[#dadada] dark:bg-gray-700"
           />
           <Switch
+            className="mr-3"
             id="dark-mode"
             checked={isDarkMode}
             onCheckedChange={(checked) => setIsDarkMode(checked)}
           />
           {!isDarkMode ? (
-            <span className="material-symbols-outlined text-[#9a9a9a]">
+            <span className="material-symbols-outlined text-[#9a9a9a] mr-3">
               dark_mode
             </span>
           ) : (
-            <span className="material-symbols-outlined">light_mode</span>
+            <span className="material-symbols-outlined mr-3">light_mode</span>
           )}
-          <ModalUI
-            title="Historial"
-            onClick={handleHistory}
-            history={history}
-          />
         </div>
       </div>
       <div className="h-[50px]">
         <InputUI onBlur={handleOnBlur} />
         {error && <p className="mt-2 text-red-500">{error}</p>}
       </div>
+      {dataApi?.length > 0 && (
+        <div className="flex justify-end mt-4">
+          <ModalUI
+            title="Historial"
+            onClick={handleHistory}
+            history={history}
+          />
+        </div>
+      )}
       {/* Body */}
       {dataApi?.length <= 0 || error ? (
         <div className="flex flex-col items-center justify-center h-[300px]">
