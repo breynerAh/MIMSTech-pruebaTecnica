@@ -24,3 +24,8 @@ export interface Phonetic {
   text: string;
   audio?: string;
 }
+
+export interface THistory {
+  term: string;
+  timestamp: string;
+}

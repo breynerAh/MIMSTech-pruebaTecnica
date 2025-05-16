@@ -9,7 +9,7 @@ import { TModalProps } from "./types";
 
 export function ModalUI({ title, onClick, history }: TModalProps) {
   const filterHistory = history?.filter(
-    (item, index) => history.indexOf(item) === index
+    (item, index) => history.findIndex((h) => h.term === item.term) === index
   );
 
   return (
@@ -32,7 +32,7 @@ export function ModalUI({ title, onClick, history }: TModalProps) {
                     key={`key-${index}`}
                     className="text-[#000] marker:text-[#a702a49f] dark:text-white"
                   >
-                    {item}
+                    {`${item?.term} - ${item?.timestamp}`}
                   </li>
                 );
               })

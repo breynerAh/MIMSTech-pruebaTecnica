@@ -5,7 +5,7 @@ import { SelectUI } from "@/components/ui/componentUI/select/selectUI";
 import { Separator } from "@radix-ui/react-separator";
 import { Switch } from "@/components/ui/switch";
 import { useEffect, useState } from "react";
-import { TDictionary } from "./types";
+import { TDictionary, THistory } from "./types";
 import { useDispatch } from "react-redux";
 import { setFont } from "@/redux/fontSlice";
 import { ModalUI } from "@/components/ui/componentUI/modal/modalUI";
@@ -16,7 +16,7 @@ export default function Home() {
   const [error, setError] = useState<string>("");
   const [dataApi, setDataApi] = useState<TDictionary[]>([]);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [history, setHistory] = useState<string[]>([]);
+  const [history, setHistory] = useState<THistory[]>([]);
   const [noData, setNoData] = useState<string>("");
 
   const dispatch = useDispatch();
@@ -75,7 +75,12 @@ export default function Home() {
 
   const handleHistory = () => {
     if (noData === "" && word !== "") {
-      setHistory([...history, word]);
+      const newHistory = {
+        term: word,
+        timestamp: new Date().toLocaleString(),
+      };
+
+      setHistory([...history, newHistory]);
     } else {
       setHistory([...history]);
     }
